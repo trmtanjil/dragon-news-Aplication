@@ -1,8 +1,12 @@
 import React from 'react'
+import { Navigate } from 'react-router'
 
 function Home() {
   return (
-    <div>Home</div>
+  <>
+    <div> <Navigate to='/cetegory/0'> </Navigate></div>
+ 
+  </>
   )
 }
 

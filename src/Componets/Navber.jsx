@@ -1,11 +1,11 @@
 import React from 'react'
-import { NavLink } from 'react-router'
+import { Link, NavLink } from 'react-router'
 import user from '../assets/user.png'
 
 function Navber() {
   return (
      <>
-     <div className='flex justify-between my-3 text-accent items-center'>
+     <div className='flex justify-between py-3 text-accent items-center'>
         <div className=''></div>
         <div className='nav  flex gap-5'>
             <NavLink to='/'>Home</NavLink>
@@ -15,7 +15,7 @@ function Navber() {
         </div>
         <div className='flex justify-center gap-5'>
             <img src={user} alt="" />
-            <button className='userbtn bg-primary text-white py-2 px-5 rounded-sm'>Login</button>
+            <button className='userbtn bg-primary text-white py-2 px-5 rounded-sm'><Link to='/auth/login'>Login</Link></button>
         </div>
      </div>
      </>

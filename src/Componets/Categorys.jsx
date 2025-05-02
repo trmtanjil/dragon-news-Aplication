@@ -18,7 +18,7 @@ function Categorys() {
           key={category.id}
           to={`/cetegory/${category.id}`}
           className='btn w-full bg-base-100  hover:bg-base-200 border-0  text-accent font-semibold'
-          >{category.name}</NavLink>
+          >{category.name} lorem111</NavLink>
         ))
       }
     </div>
