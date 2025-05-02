@@ -24,7 +24,7 @@ function NewsCard({ news }) {
   const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
 
   return (
-    <div className="card bg-base-100 shadow-sm rounded-lg mx-4 my-2">
+    <div className="card bg-base-100 shadow-sm rounded-lg  my-2">
       {/* Top section: Author and Share */}
       <div className="flex justify-between items-center p-4 bg-base-200">
         <div className="flex items-center gap-3">
