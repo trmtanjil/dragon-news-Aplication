@@ -1,8 +1,9 @@
 import React from 'react'
+import SocialLogin from './SocialLogin'
 
 function RightAside() {
   return (
-    <div>RightAside</div>
+  <SocialLogin></SocialLogin>
   )
 }
 
