@@ -1,5 +1,7 @@
+import { el } from 'date-fns/locale';
 import React, { useEffect, useState } from 'react'
 import { useLoaderData, useParams } from 'react-router'
+import NewsCart from './NewsCart';
 
 function CetegoryNews() {
   const data = useLoaderData()
@@ -9,29 +11,35 @@ function CetegoryNews() {
 
   // console.log(data )
 
-
   useEffect(()=>{
     if(id == '0'){
       setCategoryNews(data)
       return;
     }
-    else if (id =='1'){
-      const filteredNews =  data.filter(news=>news.others.is_today_pick == true );
-      setCategoryNews(filteredNews)
+    else if (id == '1'){
+      const filternews = data.filter(news=>news.others.is_today_pick ==true);
+      setCategoryNews(filternews)
     }
     else{
-      const filteredNews =  data.filter(news=>news.category_id == id );
-     
-      setCategoryNews(filteredNews)
+      const filternews = data.filter(news=>news.category_id == id);
+      setCategoryNews(filternews)
     }
- 
+
   },[data,id])
+  
   return (
   
-    <div>Total {catergorynews.length} news found</div>
+   <>
+    <h1 className='font-bold'>Total <span className='text-secondary'> {catergorynews.length}</span> news found</h1>
 
-   
+     <div className='grid grid-cols-1'>
+      {
+        catergorynews.map(news=>(<NewsCart key={news.id} news={news}></NewsCart>))
+      }
+     </div>
  
+   </>
+
   )
 }
 
