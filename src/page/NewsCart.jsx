@@ -2,6 +2,7 @@ import React from "react";
 import { FaRegEye, FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 import { IoBookmarkOutline } from "react-icons/io5";
 import { CiShare2 } from "react-icons/ci";
+import { Link } from "react-router";
 
 function NewsCard({ news }) {
   const {
@@ -11,8 +12,8 @@ function NewsCard({ news }) {
     author,
     total_view,
     rating,
-    others,
-    published_date,
+    id,
+   
   } = news;
 
   const shortDetails =
@@ -62,7 +63,7 @@ function NewsCard({ news }) {
           {shortDetails} <span className="text-gray-400">({details.length} chars)</span>
         </p>
         <button className="btn btn-link btn-sm text-orange-500 pl-0">
-          Read More
+        <Link to={`/news-detail/${id}`}> Read More</Link>
         </button>
       </div>
 

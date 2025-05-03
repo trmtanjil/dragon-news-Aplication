@@ -5,6 +5,8 @@ import CetegoryNews from "../page/CetegoryNews";
 import Login from "../page/Login";
 import Register from "../page/Register";
 import Auth from "../Layout/Auth";
+import DetailsNews from "../page/DetailsNews";
+import PrivetRouter from "../Provider/PrivetRouter";
 
 const Router = createBrowserRouter([
     {
@@ -37,8 +39,11 @@ const Router = createBrowserRouter([
         ]
     },
     {
-        path:'/news',
-        element:<h2>news alyout</h2>
+        path:'/news-detail/:id',
+        element:<PrivetRouter>
+            <DetailsNews></DetailsNews>
+        </PrivetRouter> ,
+        loader:()=>fetch('/news.json'),
     },
     {
         path:'/*',

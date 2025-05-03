@@ -4,7 +4,19 @@ import usericon from '../assets/user.png'
 import { authContext } from '../Provider/AuthProvider'
 
 function Navber() {
-  const {user} =use(authContext)
+  const {user,logOut} =use(authContext)
+
+
+  const handleLogout =()=>{
+    logOut()
+    .then(()=>{
+      alert ('you loged out succecfull ')
+    })
+    .catch((error) => {
+      // An error happened.
+      console.log(error)
+    });
+  }
   return (
      <>
      <div className='flex justify-between py-3 text-accent items-center'>
@@ -17,7 +29,10 @@ function Navber() {
         </div>
         <div className='flex justify-center gap-5'>
             <img src={usericon} alt="" />
-            <button className='userbtn bg-primary text-white py-2 px-5 rounded-sm'><Link to='/auth/login'>Login</Link></button>
+        
+              {
+                user ? <button onClick={handleLogout} className='userbtn bg-primary text-white py-2 px-5 rounded-sm'> LogOut</button> :   <button className='userbtn bg-primary text-white py-2 px-5 rounded-sm'> <Link to='/auth/login'>Login</Link></button>
+              }
         </div>
      </div>
      </>

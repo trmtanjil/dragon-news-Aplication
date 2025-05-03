@@ -5,7 +5,7 @@ const cetegoryPromiss = fetch('/categories.json').then(res=>(res.json()));
 
 function Categorys() {
     const cetegory = use(cetegoryPromiss);
-    console.log(cetegory)
+     
 
 
   return (

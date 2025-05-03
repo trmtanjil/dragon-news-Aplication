@@ -1,4 +1,4 @@
-import { el } from 'date-fns/locale';
+ 
 import React, { useEffect, useState } from 'react'
 import { useLoaderData, useParams } from 'react-router'
 import NewsCart from './NewsCart';
@@ -7,6 +7,7 @@ function CetegoryNews() {
   const data = useLoaderData()
   const [catergorynews, setCategoryNews] =useState([]); 
 
+ 
   const {id} = useParams();
 
   // console.log(data )
