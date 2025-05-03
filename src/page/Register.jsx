@@ -1,9 +1,10 @@
-import React, { use } from 'react'
+import React, { use, useState } from 'react'
 import { Link } from 'react-router'
 import { authContext } from '../Provider/AuthProvider';
 
 function Register() {
   const {creatUser,setUser} =use(authContext)
+  const [nameError, setNameError] = useState('')
   const handleRegister=e=>{
     e.preventDefault();
 
@@ -13,7 +14,12 @@ function Register() {
     const email= form.email.value;
     const password = form.password.value;
 
-    console.log(name, photourl, email, password)
+   if(name.length<5){
+    setNameError('plese set name cerecter uper 5 cerecters')
+    return;
+   }else{
+    setNameError('')
+   }
 
     creatUser(email,password)
     .then(result=>{
@@ -36,6 +42,10 @@ function Register() {
       <form onSubmit={handleRegister} className="fieldset">
       <label className="label">Your Name</label>
       <input type="text" className="input" placeholder="Enter your name" name='name' />
+      {
+          nameError &&  <p className='text-red-500'>{nameError}</p>
+        }
+
       {/* Photo url  */}
       <label className="label">Photo URL</label>
       <input type="text" className="input" placeholder="Enter your Photo url" name='photourl' />
@@ -46,6 +56,7 @@ function Register() {
         <label className="label">Password</label>
         <input type="password" className="input" placeholder="Password" name='password' />
         <div><a className="link link-hover">Forgot password?</a></div>
+      
         <button type='submit' className="btn btn-neutral mt-4"><Link to='/'>Register</Link></button>
       </form>
       <h2 className='text-center'> Already have an Account ?<Link className='text-blue-400 font-semibold' to='/auth/login'>Login</Link></h2>
